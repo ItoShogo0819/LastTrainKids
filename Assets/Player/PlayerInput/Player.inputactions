@@ -3,7 +3,7 @@
     "name": "Player",
     "maps": [
         {
-            "name": "Move",
+            "name": "GamePlay",
             "id": "0e3ad4b7-04e1-4178-8f21-84141d5391bf",
             "actions": [
                 {
@@ -16,7 +16,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Stop",
+                    "name": "Brake",
                     "type": "Button",
                     "id": "a45ebabf-8bf9-477a-80ca-aaaf3b52c1e5",
                     "expectedControlType": "",
@@ -25,9 +25,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Accelerator",
+                    "name": "Horn",
                     "type": "Button",
-                    "id": "1a36733a-23c6-4af8-83cb-9f342b324038",
+                    "id": "b89aaa0f-208e-4407-8af4-71cbecfba164",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -92,23 +92,56 @@
                 },
                 {
                     "name": "",
-                    "id": "16c6f5c4-b546-4aaf-8ffb-64caa165caa4",
-                    "path": "<Keyboard>/space",
+                    "id": "e75d73b9-a386-45d0-8083-36fc1b64af29",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Stop",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "bbf79da5-32d8-4905-9750-e5654c517a0b",
+                    "id": "16c6f5c4-b546-4aaf-8ffb-64caa165caa4",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "305b4ec9-7651-4e39-acfb-d440758bd33a",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f1d20806-0d8e-4120-9bd0-fe490d7f3baa",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Accelerator",
+                    "action": "Horn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "36a8681e-f489-4fa2-8801-958cb994a534",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Horn",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
