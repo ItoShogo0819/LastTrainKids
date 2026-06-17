@@ -3,7 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// ゲーム状態の遷移を管理し、状態変更イベントを各システムに通知
-/// <summary>
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     public event Action<GameState> StateChanged;
