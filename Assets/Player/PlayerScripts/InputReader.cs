@@ -6,6 +6,7 @@ public class InputReader : MonoBehaviour
 {
     public event Action<float> SteerChanged;
     public event Action<bool> AccelerateChanged;
+    public event Action<bool> ReverseChanged;
     public event Action<bool> BrakeChanged;
     public event Action HornPressed;
     public event Action RetryPressed;
@@ -19,6 +20,11 @@ public class InputReader : MonoBehaviour
     public void OnAccelerate(InputAction.CallbackContext cont)
     {
         AccelerateChanged?.Invoke(cont.ReadValueAsButton());
+    }
+
+    public void OnReverse(InputAction.CallbackContext cont)
+    {
+        ReverseChanged?.Invoke(cont.ReadValueAsButton());
     }
 
     public void OnBrake(InputAction.CallbackContext cont)
