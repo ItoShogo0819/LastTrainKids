@@ -11,6 +11,12 @@ public class CarController : MonoBehaviour
     [SerializeField] private WheelCollider _rearLeftWheel;
     [SerializeField] private WheelCollider _rearRightWheel;
 
+    [Header("Wheel Visuals")]
+    [SerializeField] private Transform _frontLeftVisual;
+    [SerializeField] private Transform _frontRightVisual;
+    [SerializeField] private Transform _rearLeftVisual;
+    [SerializeField] private Transform _rearRightVisual;
+
     [Header("Vehicle Settings")]
     [SerializeField] private float _motorTorque = 1500f;
     [SerializeField] private float _reverseTorque = 800f;
@@ -105,6 +111,11 @@ public class CarController : MonoBehaviour
             appliedMotorTorque = -_reverseTorque;
         }
 
+        if((_acceleratePressed || _reversePressed) && _rb.IsSleeping())
+        {
+            _rb.WakeUp();
+        }
+
         _rearLeftWheel.motorTorque = appliedMotorTorque;
         _rearRightWheel.motorTorque = appliedMotorTorque;
 
@@ -112,5 +123,24 @@ public class CarController : MonoBehaviour
         _frontRightWheel.brakeTorque = appliedBrakeTorque;
         _rearLeftWheel.brakeTorque = appliedBrakeTorque;
         _rearRightWheel.brakeTorque = appliedBrakeTorque;
+    }
+
+    private void Update()
+    {
+        UpdateWheelVisual(_frontLeftWheel, _frontLeftVisual);
+        UpdateWheelVisual(_frontRightWheel, _frontRightVisual);
+        UpdateWheelVisual(_rearLeftWheel, _rearLeftVisual);
+        UpdateWheelVisual(_rearRightWheel, _rearRightVisual);
+    }
+
+    private void UpdateWheelVisual(WheelCollider collider, Transform visualTransform)
+    {
+        if (visualTransform == null) return;
+
+        Vector3 pos;
+        Quaternion rot;
+        collider.GetWorldPose(out pos, out rot);
+        visualTransform.position = pos;
+        visualTransform.rotation = rot;
     }
 }
