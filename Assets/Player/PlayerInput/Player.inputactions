@@ -17,30 +17,30 @@
                 },
                 {
                     "name": "Accelerate",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "9770893d-57bb-4ee4-a38f-a1e5a8abdc43",
-                    "expectedControlType": "",
+                    "expectedControlType": "Digital",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Reverse",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "fcd2cda7-304a-49d5-9bb0-00013eb36a02",
-                    "expectedControlType": "",
+                    "expectedControlType": "Digital",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Brake",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "a45ebabf-8bf9-477a-80ca-aaaf3b52c1e5",
-                    "expectedControlType": "",
+                    "expectedControlType": "Digital",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Horn",
