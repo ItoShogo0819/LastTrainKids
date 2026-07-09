@@ -12,45 +12,46 @@ public class InputReader : MonoBehaviour
     public event Action RetryPressed;
     public event Action PausePressed;
 
-    public void OnSteer(InputAction.CallbackContext cont)
+    // Send Messages 用のシグネチャ（InputValue を引数に取る）に変更
+    public void OnSteer(InputValue value)
     {
-        SteerChanged?.Invoke(cont.ReadValue<float>());
+        SteerChanged?.Invoke(value.Get<float>());
     }
 
-    public void OnAccelerate(InputAction.CallbackContext cont)
+    public void OnAccelerate(InputValue value)
     {
-        AccelerateChanged?.Invoke(cont.ReadValueAsButton());
+        AccelerateChanged?.Invoke(value.isPressed);
     }
 
-    public void OnReverse(InputAction.CallbackContext cont)
+    public void OnReverse(InputValue value)
     {
-        ReverseChanged?.Invoke(cont.ReadValueAsButton());
+        ReverseChanged?.Invoke(value.isPressed);
     }
 
-    public void OnBrake(InputAction.CallbackContext cont)
+    public void OnBrake(InputValue value)
     {
-        BrakeChanged?.Invoke(cont.ReadValueAsButton());
+        BrakeChanged?.Invoke(value.isPressed);
     }
 
-    public void OnHorn(InputAction.CallbackContext cont)
+    public void OnHorn(InputValue value)
     {
-        if (cont.performed)
+        if (value.isPressed)
         {
             HornPressed?.Invoke();
         }
     }
 
-    public void OnRetry(InputAction.CallbackContext cont)
+    public void OnRetry(InputValue value)
     {
-        if (cont.performed)
+        if (value.isPressed)
         {
             RetryPressed?.Invoke();
         }
     }
 
-    public void OnPause(InputAction.CallbackContext cont)
+    public void OnPause(InputValue value)
     {
-        if (cont.performed)
+        if (value.isPressed)
         {
             PausePressed?.Invoke();
         }
