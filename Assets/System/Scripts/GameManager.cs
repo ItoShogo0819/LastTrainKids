@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public void OnGameClear()
     {
         if (CurrentState == GameState.Clear) return;
+        Debug.Log("Game Clear");
 
         ChangeState(GameState.Clear);
     }
