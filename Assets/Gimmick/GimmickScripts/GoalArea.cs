@@ -1,5 +1,7 @@
+using System.Transactions;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider))]
 public class GoalArea : MonoBehaviour
 {
     [Header("References")]
@@ -10,16 +12,16 @@ public class GoalArea : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.attachedRigidbody != null && other.attachedRigidbody.CompareTag("Player"))
         {
             _isPlayerInGoalArea = true;
-            _playerRB = other.GetComponentInParent<Rigidbody>();
+            _playerRB = other.attachedRigidbody;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.attachedRigidbody != null && other.attachedRigidbody.CompareTag("Player"))
         {
             _isPlayerInGoalArea = false;
             _playerRB = null;
