@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// ゲーム状態の遷移を管理し、状態変更イベントを各システムに通知
@@ -45,6 +46,28 @@ public class GameManager : MonoBehaviour
             ChangeState(GameState.Paused);
         }
         else if(CurrentState == GameState.Paused)
+        {
+            ChangeState(GameState.Playing);
+        }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "MainMenu")
+        {
+            ChangeState(GameState.MainMenu);
+        }
+        else if (scene.name == "InGame")
         {
             ChangeState(GameState.Playing);
         }
