@@ -2,8 +2,14 @@ using System.Transactions;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
-public class GoalArea : MonoBehaviour
+public class GoalArea : GimmickBase
 {
+    public override void ResetGimmick()
+    {
+        _isPlayerInGoalArea = false;
+        _playerRB = null;
+    }
+
     [Header("References")]
     [SerializeField] private GameManager _gameManager;
 
