@@ -105,3 +105,7 @@ InitTestScene*.unity*
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
 /Assets/kenney_train-kit/
+/Assets/kenney_train-kit.meta
+/Assets/POLYGON city pack/
+/Assets/POLYGON city pack.meta
+/Assets/_Recovery/
