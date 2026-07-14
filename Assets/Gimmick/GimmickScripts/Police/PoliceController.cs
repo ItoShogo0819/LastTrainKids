@@ -12,6 +12,8 @@ public class PoliceController : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
 
+        _gameManager = Object.FindAnyObjectByType<GameManager>();
+
         var playerGO = GameObject.FindGameObjectWithTag("Player");
         if(playerGO != null)
         {
